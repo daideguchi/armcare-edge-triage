@@ -19,6 +19,8 @@ The app runs a local AI priority classifier over generated care-intake messages.
 
 The dashboard shows live benchmark proof from the current machine: Arm platform, dataset size, latency, speedup, accuracy, and memory reduction.
 
+Challenge track fit: Mobile AI / on-device edge AI. The project is designed around local inference on Arm-powered devices rather than cloud-only AI.
+
 ## How AI Is Used
 
 ArmCare uses a compact local classifier to turn each intake message into a route. The AI is not a medical decision-maker and does not provide a diagnosis. It is an operational sorter that gives staff a prioritized review queue.
@@ -49,7 +51,7 @@ Care teams need AI that is fast, cheap, private, and understandable. Arm devices
 
 - Public repository: https://github.com/daideguchi/armcare-edge-triage
 - Live demo: https://daideguchi.github.io/armcare-edge-triage/
-- Demo video:
+- Demo video: https://youtu.be/3M4srfq2kCs
 
 ## Claim Boundary
 

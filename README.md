@@ -58,10 +58,14 @@ Public demo: https://daideguchi.github.io/armcare-edge-triage/
 
 Public repository: https://github.com/daideguchi/armcare-edge-triage
 
+Demo video: https://youtu.be/3M4srfq2kCs
+
 ## Submission Assets
 
 - Devpost draft: `submission/devpost-draft.md`
 - Demo script: `submission/demo-script.md`
+- Demo video: `submission/demo-video-build/armcare-edge-triage-demo.mp4`
+- YouTube thumbnail: `submission/youtube-thumbnail.png`
 - Architecture: `ARCHITECTURE.md`
 - Visual asset: `media/armcare-edge-triage-poster.png`
 
