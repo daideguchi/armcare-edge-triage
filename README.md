@@ -54,6 +54,10 @@ Outputs:
 
 Open `site/index.html` in a browser. It renders the current benchmark, queue distribution, and the live claim boundary from the generated JSON.
 
+Public demo: https://daideguchi.github.io/armcare-edge-triage/
+
+Public repository: https://github.com/daideguchi/armcare-edge-triage
+
 ## Submission Assets
 
 - Devpost draft: `submission/devpost-draft.md`

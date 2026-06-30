@@ -47,8 +47,8 @@ Care teams need AI that is fast, cheap, private, and understandable. Arm devices
 
 ## Submission Links To Add
 
-- Public repository:
-- Live demo:
+- Public repository: https://github.com/daideguchi/armcare-edge-triage
+- Live demo: https://daideguchi.github.io/armcare-edge-triage/
 - Demo video:
 
 ## Claim Boundary
