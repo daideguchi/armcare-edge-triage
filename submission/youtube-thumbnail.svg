@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#f7f6f1"/>
+  <rect x="0" y="0" width="1280" height="122" fill="#17262b"/>
+  <text x="58" y="82" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" fill="#ffffff">ArmCare Edge Triage</text>
+  <text x="58" y="185" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" fill="#17262b">Arm-optimized local AI routing</text>
+  <rect x="58" y="248" width="255" height="145" rx="16" fill="#ffffff" stroke="#d9d3c7" stroke-width="2"/>
+  <rect x="58" y="248" width="255" height="14" fill="#c94b4b"/>
+  <text x="84" y="312" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#5b615f">Speedup</text>
+  <text x="84" y="367" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="800" fill="#17262b">21.2x</text>
+  <rect x="342" y="248" width="255" height="145" rx="16" fill="#ffffff" stroke="#d9d3c7" stroke-width="2"/>
+  <rect x="342" y="248" width="255" height="14" fill="#2e8b7b"/>
+  <text x="368" y="312" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#5b615f">Latency</text>
+  <text x="368" y="367" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="800" fill="#17262b">3.73 ms</text>
+  <rect x="626" y="248" width="255" height="145" rx="16" fill="#ffffff" stroke="#d9d3c7" stroke-width="2"/>
+  <rect x="626" y="248" width="255" height="14" fill="#a66a2d"/>
+  <text x="652" y="312" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#5b615f">Memory</text>
+  <text x="652" y="367" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="800" fill="#17262b">75.0%</text>
+  <rect x="920" y="226" width="245" height="245" rx="34" fill="#17262b"/>
+  <rect x="948" y="258" width="189" height="158" rx="18" fill="#f7f6f1"/>
+  <text x="980" y="318" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" fill="#c94b4b">arm64</text>
+  <text x="980" y="366" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#2e8b7b">int8 batch</text>
+  <text x="58" y="552" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#283539">Private intake stays local. Humans keep final decisions.</text>
+</svg>

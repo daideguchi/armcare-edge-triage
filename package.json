@@ -5,6 +5,7 @@
   "description": "Arm-optimized edge AI triage demo for care intake queues.",
   "scripts": {
     "bench": "python3 scripts/run_arm_benchmark.py --write",
+    "video": "node scripts/build_demo_video.mjs",
     "verify": "npm run bench && python3 scripts/verify_outputs.py && node scripts/verify_site.mjs"
   },
   "devDependencies": {}
