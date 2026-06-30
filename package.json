@@ -1,0 +1,11 @@
+{
+  "name": "armcare-edge-triage",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Arm-optimized edge AI triage demo for care intake queues.",
+  "scripts": {
+    "bench": "python3 scripts/run_arm_benchmark.py --write",
+    "verify": "npm run bench && python3 scripts/verify_outputs.py && node scripts/verify_site.mjs"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "queue": "urgent_care",
+    "message": "Patient reports chest tightness and dizziness after new medication."
+  },
+  {
+    "queue": "urgent_care",
+    "message": "Caregiver says fever has returned and breathing sounds worse tonight."
+  },
+  {
+    "queue": "access_support",
+    "message": "Need wheelchair access and quiet waiting room for next appointment."
+  },
+  {
+    "queue": "access_support",
+    "message": "Client asks for an interpreter and written instructions in advance."
+  },
+  {
+    "queue": "paperwork",
+    "message": "Please prepare the disability certificate renewal documents this week."
+  },
+  {
+    "queue": "paperwork",
+    "message": "Insurance office needs a signed treatment summary and visit history."
+  },
+  {
+    "queue": "routine_followup",
+    "message": "Can we move the checkup from Tuesday morning to Friday afternoon?"
+  },
+  {
+    "queue": "routine_followup",
+    "message": "Confirm whether the next remote follow-up link is still valid."
+  }
+]

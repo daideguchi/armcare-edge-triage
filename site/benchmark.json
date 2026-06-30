@@ -1,0 +1,105 @@
+{
+  "project": "ArmCare Edge Triage",
+  "generated_at_utc": "2026-06-30T02:43:11Z",
+  "claim_boundary": "Synthetic care-intake routing benchmark. Not medical diagnosis. No external API or patient data used.",
+  "git_commit": "f2c21c3",
+  "platform": {
+    "machine": "arm64",
+    "processor": "arm",
+    "platform": "Darwin-25.2.0-arm64-arm-64bit-Mach-O",
+    "python": "3.14.4",
+    "numpy": "2.4.2",
+    "mac_model": "Mac16,1",
+    "cpu_brand": "Apple M4"
+  },
+  "dataset": {
+    "samples": 12000,
+    "features": 192,
+    "classes": [
+      "urgent_care",
+      "access_support",
+      "paperwork",
+      "routine_followup"
+    ],
+    "class_counts": {
+      "urgent_care": 2964,
+      "access_support": 2970,
+      "paperwork": 3064,
+      "routine_followup": 3002
+    },
+    "seed": 260630
+  },
+  "baseline": {
+    "name": "fp32_single_ticket_probability",
+    "median_ms": 66.095459042117,
+    "runs_ms": [
+      66.754832980223,
+      61.35887501295656,
+      57.58704198524356,
+      58.79754200577736,
+      66.095459042117,
+      175.12633290607482,
+      202.77154096402228
+    ],
+    "accuracy": 1.0,
+    "tickets_per_second": 181555.58905118465
+  },
+  "optimized": {
+    "name": "int8_arm_batch",
+    "median_ms": 4.942334024235606,
+    "runs_ms": [
+      5.266083055175841,
+      4.4552909675985575,
+      4.5172079699113965,
+      4.942334024235606,
+      5.127916927449405,
+      5.015125032514334,
+      4.450917011126876
+    ],
+    "accuracy": 1.0,
+    "agreement_with_baseline": 1.0,
+    "feature_scale": 0.03650276304229977,
+    "weight_scale": 0.024435910652941605,
+    "tickets_per_second": 2428002.628142065
+  },
+  "speedup": 13.373329021876357,
+  "memory": {
+    "baseline_bytes": 9219088,
+    "optimized_bytes": 2304784,
+    "reduction_percent": 74.99986983528089
+  },
+  "sample_tickets": [
+    {
+      "queue": "urgent_care",
+      "message": "Patient reports chest tightness and dizziness after new medication."
+    },
+    {
+      "queue": "urgent_care",
+      "message": "Caregiver says fever has returned and breathing sounds worse tonight."
+    },
+    {
+      "queue": "access_support",
+      "message": "Need wheelchair access and quiet waiting room for next appointment."
+    },
+    {
+      "queue": "access_support",
+      "message": "Client asks for an interpreter and written instructions in advance."
+    },
+    {
+      "queue": "paperwork",
+      "message": "Please prepare the disability certificate renewal documents this week."
+    },
+    {
+      "queue": "paperwork",
+      "message": "Insurance office needs a signed treatment summary and visit history."
+    },
+    {
+      "queue": "routine_followup",
+      "message": "Can we move the checkup from Tuesday morning to Friday afternoon?"
+    },
+    {
+      "queue": "routine_followup",
+      "message": "Confirm whether the next remote follow-up link is still valid."
+    }
+  ]
+}

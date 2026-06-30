@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ArmCare Edge Triage</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar" aria-label="Benchmark status">
+        <div>
+          <p class="eyebrow">Arm Create AI Optimization</p>
+          <h1>ArmCare Edge Triage</h1>
+        </div>
+        <div class="status-pill" id="platform">loading</div>
+      </section>
+
+      <section class="workspace" aria-label="Care triage workspace">
+        <div class="queue-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Care Inbox</p>
+            <h2>Human Review Queue</h2>
+          </div>
+          <div id="tickets" class="ticket-list"></div>
+        </div>
+
+        <div class="metrics-panel">
+          <div class="metric-grid">
+            <article class="metric">
+              <span>Speedup</span>
+              <strong data-testid="speedup" id="speedup">--</strong>
+            </article>
+            <article class="metric">
+              <span>Optimized Latency</span>
+              <strong id="optimized-latency">--</strong>
+            </article>
+            <article class="metric">
+              <span>Route Accuracy</span>
+              <strong id="accuracy">--</strong>
+            </article>
+            <article class="metric">
+              <span>Memory Drop</span>
+              <strong id="memory">--</strong>
+            </article>
+            <article class="metric">
+              <span>Tickets Per Second</span>
+              <strong id="throughput">--</strong>
+            </article>
+          </div>
+
+          <div class="chart-panel">
+            <div class="panel-heading compact">
+              <p class="eyebrow">Measured Locally</p>
+              <h2>Queue Mix</h2>
+            </div>
+            <div id="bars" class="bars"></div>
+          </div>
+
+          <div class="proof-strip">
+            <div>
+              <span>Baseline</span>
+              <strong id="baseline-name">--</strong>
+            </div>
+            <div>
+              <span>Optimized</span>
+              <strong id="optimized-name">--</strong>
+            </div>
+            <div>
+              <span>Dataset</span>
+              <strong id="dataset">--</strong>
+            </div>
+          </div>
+        </div>
+
+        <aside class="proof-panel">
+          <img src="./media/armcare-edge-triage-poster.png" alt="ArmCare benchmark poster" />
+          <div class="boundary">
+            <p class="eyebrow">Claim Boundary</p>
+            <p id="boundary">Not medical diagnosis.</p>
+          </div>
+          <div class="chip-row" id="class-chips"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="./benchmark-inline.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
