@@ -5,3 +5,9 @@ node_modules/
 !.env.example
 *.log
 tmp/
+submission/demo-video-build/*.aiff
+submission/demo-video-build/*.mp4
+submission/demo-video-build/*.png
+submission/demo-video-build/*.svg
+submission/demo-video-build/*.wav
+submission/demo-video-build/concat.txt
