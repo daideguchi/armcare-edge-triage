@@ -18,7 +18,11 @@ This project uses AI as a local priority classifier. It turns each intake messag
 
 ArmCare helps a small front office answer one question quickly:
 
-> Which incoming messages need immediate human attention, and which can safely wait in a normal workflow?
+> Which incoming messages should a human review first?
+
+Every queue label is an AI routing suggestion over clearly synthetic data. It is not
+a verified observation, diagnosis, care decision, or record that support was
+performed. The demo never marks an AI suggestion as an action taken.
 
 It prioritizes four queues:
 
@@ -36,19 +40,58 @@ The repository contains two measured inference paths:
 
 The optimized path is designed for Arm edge devices where memory bandwidth and battery matter. It uses a compact int8 representation for the message features and classifier weights, then performs batched matrix multiplication with deterministic output.
 
-Run:
+The reported `21.2x` result is an end-to-end comparison between the two named
+paths, not a claim that int8 quantization alone provides a `21.2x` speedup. The
+optimized path combines batching, int8 storage, integer scoring, and removal of
+the baseline probability calculation. See `docs/ROADMAP.md` for the next
+benchmark controls needed to isolate each optimization.
+
+## Reproduce And Validate
+
+Prerequisites are Python 3 with NumPy and Pillow, Node.js, Playwright with a
+Chromium browser, and an Arm64 machine. The committed evidence records the exact
+Python, NumPy, OS, machine, and processor identifiers used for the measured run.
+
+1. Clone the repository on an Arm64 machine.
+2. Review `data/sample_tickets.json` to confirm that only the provided synthetic
+   fixtures are used.
+3. Regenerate and validate all evidence:
 
 ```bash
 npm run verify
 ```
 
-Outputs:
+4. Open `site/index.html` to inspect the local dashboard.
+
+The command writes:
 
 - `evidence/benchmark_latest.json`
 - `site/benchmark-inline.js`
 - `site/benchmark.json`
 - `media/armcare-edge-triage-poster.png`
 - `media/site-screenshot.png`
+
+For a read-only integrity check of the committed evidence, without rerunning the
+benchmark or rewriting assets:
+
+```bash
+python3 scripts/verify_outputs.py
+```
+
+## Benchmark Scope And Limitations
+
+- The evidence is a deterministic synthetic separability benchmark, not a
+  clinical-quality or real-world accuracy study.
+- The current speedup measures the combined production-style routing paths; it
+  does not isolate batching from quantization.
+- The memory figure compares resident feature/weight array bytes. It is not
+  process peak RSS, energy use, or battery-life measurement.
+- The committed measurement was produced on an Apple M4 Arm64 laptop. No result
+  is claimed for unmeasured Arm devices.
+- No external AI service is called by the benchmark or the static demo.
+
+Known limitations and the prioritized validation plan are maintained in both
+this section and `docs/ROADMAP.md`.
 
 ## Local Demo
 
