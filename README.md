@@ -46,6 +46,27 @@ optimized path combines batching, int8 storage, integer scoring, and removal of
 the baseline probability calculation. See `docs/ROADMAP.md` for the next
 benchmark controls needed to isolate each optimization.
 
+The repository also includes a separate, non-publishing ablation runner for
+FP32 single-ticket, FP32 batch, INT8 single-ticket, and INT8 batch scoring. It
+records warm-ups, every measured run, p50/p95 latency, throughput, accuracy,
+agreement with the FP32 single-ticket baseline, architecture, and fixed
+numerical-backend thread settings. Each latency run covers the complete
+synthetic dataset:
+
+```bash
+python3 scripts/run_ablation_benchmark.py \
+  --threads 1 --warmup-runs 2 --repeats 7 \
+  --require-arm64 --output evidence/ablation_arm64.json
+python3 scripts/verify_outputs.py --ablation evidence/ablation_arm64.json
+```
+
+The runner refuses to write over the existing public benchmark files. Without
+`--output` it only prints JSON. `--require-arm64` exits before writing on other
+architectures, so development smoke runs cannot replace the published Arm64
+evidence. Output paths must end in `.json`, and an existing non-public artifact
+is refused by default; add `--overwrite` only when intentionally replacing that
+artifact. The public benchmark files remain protected even with `--overwrite`.
+
 ## Reproduce And Validate
 
 Prerequisites are Python 3 with NumPy and Pillow, Node.js, Playwright with a
@@ -60,6 +81,9 @@ Python, NumPy, OS, machine, and processor identifiers used for the measured run.
 ```bash
 npm run verify
 ```
+
+The write path checks the current architecture before benchmarking and refuses
+to rewrite the committed public evidence unless the machine reports Arm64.
 
 4. Open `site/index.html` to inspect the local dashboard.
 
@@ -84,6 +108,11 @@ python3 scripts/verify_outputs.py
   clinical-quality or real-world accuracy study.
 - The current speedup measures the combined production-style routing paths; it
   does not isolate batching from quantization.
+- The four-path ablation runner is implemented, but no verified Arm64 ablation
+  artifact is committed yet. The existing `21.2x` headline must remain unchanged
+  until a new artifact passes strict verification on Arm64.
+- Ablation raw runs currently repeat full-dataset inference inside one process;
+  separate process-startup variance is not yet measured.
 - The memory figure compares resident feature/weight array bytes. It is not
   process peak RSS, energy use, or battery-life measurement.
 - The committed measurement was produced on an Apple M4 Arm64 laptop. No result

@@ -11,6 +11,7 @@ import platform
 import shutil
 import statistics
 import subprocess
+import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -285,6 +286,13 @@ def main() -> int:
     parser.add_argument("--samples", type=int, default=BenchmarkConfig.samples)
     parser.add_argument("--features", type=int, default=BenchmarkConfig.features)
     args = parser.parse_args()
+
+    if args.write and platform.machine().lower() not in {"arm64", "aarch64"}:
+        print(
+            "refusing to rewrite public benchmark evidence on a non-Arm64 machine",
+            file=sys.stderr,
+        )
+        return 2
 
     config = BenchmarkConfig(samples=args.samples, features=args.features)
     metrics = build_metrics(config)
